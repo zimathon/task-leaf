@@ -1,0 +1,21 @@
+h1 Tasks#index
+p Find me in app/views/tasks/index.html.slim
+
+= link_to '新規登録', new_task_path, class: 'btn btn-primary'
+
+.mb-3
+table.table.table-hover
+  thread.thread-default
+    tr
+      th= Task.human_attribute_name(:namne)
+      th= Task.human_attribute_name(:created_at)
+      th
+  tbody
+    - @tasks.each do |task|
+      tr
+        td= link_to task.name, task
+        td= task.name
+        td= task.created_at
+        td
+          = link_to 'edit', edit_task_path(task), class: 'btn btn-primary mr-3'
+          = link_to 'delete',task,  method: :delete, data: {confirm: "delte #{task.name} ok?"}, class: 'btn btn-danger'
