@@ -15,6 +15,7 @@ p Find me in app/views/tasks/index.html.slim
 table.table.table-hover
   thread.thread-default
     tr
+      th= sort_link(@q, :name)
       th= Task.human_attribute_name(:name)
       th= Task.human_attribute_name(:created_at)
       th
